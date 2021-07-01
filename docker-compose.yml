@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+    mongodb:
+        image: mongo
+        container_name: mongodb
+        environment:
+        - PUID=1000
+        - PGID=1000
+        - MONGO_INITDB_ROOT_USERNAME=mongouser
+        - MONGO_INITDB_ROOT_PASSWORD=mongopwd
+        volumes:
+        - /projects/k8s-bootcamp/rotten-potatoes/mongodb/database:/data/db
+        ports:
+        - 27017:27017
+        restart: unless-stopped
+    web:
+        image: raphaelcarlosr/rotten-potatoes:v1
+        container_name: web
+        environment: 
+        - MONGODB_DB:admin
+        - MONGODB_HOST:mongo-service
+        - MONGODB_PORT:27017
+        - MONGODB_USERNAME:mongouser
+        - MONGODB_PASSWORD:mongopwd
+        ports:
+        - 8082:5000
