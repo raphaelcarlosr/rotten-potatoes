@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: movies
-          image: raphaelcarlosr/rotten-potatoes:v1
+          image: raphaelcarlosr/rotten-potatoes:lasted
           # command: ["sleep", "infinity"]          
           resources:
             limits:
