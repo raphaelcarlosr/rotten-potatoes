@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: movies
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: movies
@@ -14,10 +15,11 @@ spec:
       containers:
         - name: movies
           image: raphaelcarlosr/rotten-potatoes:v1
-          # resources:
-          #   limits:
-          #     memory: "128Mi"
-          #     cpu: "500m"
+          # command: ["sleep", "infinity"]          
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
             - containerPort: 5000
           env:
@@ -28,9 +30,9 @@ spec:
             - name: MONGODB_PORT
               value: "27017"
             - name: MONGODB_USERNAME
-              value: mongouser
+              value: root
             - name: MONGODB_PASSWORD
-              value: mongopwd
+              value: root@123
               
 ---
 
