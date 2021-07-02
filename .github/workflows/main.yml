@@ -36,7 +36,7 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            raphaelcarlosr/rotten-potatoes:lasted
-            raphaelcarlosr/rotten-potatoes:${{ github.run_number }}
+            raphaelcarlosr/rotten-potatoes-kubedev:lasted
+            raphaelcarlosr/rotten-potatoes-kubedev:${{ github.run_number }}
 
       
